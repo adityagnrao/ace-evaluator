@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+DEBUGOPTS=""
+ARGS=""
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+  -d) shift
+      DEBUGOPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=$1";;
+  -*)
+     ARGS="${ARGS} $1 $2";
+     shift;;
+  *) echo "ERROR: Unrecognized parameter: " $1;
+        exit 1;;  # terminate while loop
+  esac
+  shift
+done
+
+java $DEBUGOPTS -cp ./*:`mapr clientclasspath` com.mapr.tools.AceEvaluator $ARGS 2> /dev/null
