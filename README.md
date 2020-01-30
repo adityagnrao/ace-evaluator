@@ -1,6 +1,6 @@
 # ACE Evaluator
 
-    A tool which can be used to evaluate user access on a  MapR ACE, [Access Control Expression]. 
+    A tool which can be used to evaluate user access on a  MapR ACE, [Access Control Expression] (https://mapr.com/docs/52/SecurityGuide/SyntaxOfACE.html/). 
 
 <b>Summary</b>
     
@@ -74,4 +74,3 @@
      ./checkACE -user root -ace 'u:root&u:mapr' -db m7user1 -clean false -d 5005
      Listening for transport dt_socket at address: 5005
      
-[Access Control Expression]: https://mapr.com/docs/52/SecurityGuide/SyntaxOfACE.html
